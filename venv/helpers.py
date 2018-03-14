@@ -1,7 +1,7 @@
 import requests
 from key import api_key
 
-MAX_RESULTS = 100                       # default number of results on page
+MAX_RESULTS = 25                       # default number of results on page
 
 api = {"apiKey": api_key}
 
@@ -56,8 +56,6 @@ def lookup(query, offset=None, max_results=None):
     # user-entered query string
     parameters['queryString'] = query
     response = requests.post(endpoint, params=api, headers=headers, json=parameters).json()
-
-    print(response)
 
     # number of articles found
     index_count = response["results"][0]["indexCount"]
