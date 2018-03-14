@@ -40,7 +40,7 @@
 <div class="container-fluid">
     <div class="container">
         <div class="info-form">
-            <form action="{{ url_for('search') }}" method="POST" class="form-inline justify-content-center"
+            <form action="{{ url_for('search', page_num=1) }}" method="GET" class="form-inline justify-content-center"
                   role="search">
                 <div class="form-group">
                     <label class="sr-only">Search</label>
@@ -57,15 +57,12 @@
             </main>
         </div>
 
-        <span class="input-group-addon">Results per page: </span>
-        <label class="sr-only">>Results per page</label>
-        <select name="resultsPerPage" class="selectpicker form-control">
-            <option value="25">25</option>
-            <option value="50">50</option>
-            <option value="75">75</option>
-            <option value="100" selected="selected">100</option>
-        </select>
-        <input type="submit" id="submitResultsPerPage" class="btn-small btn-secondary" value="Go">
+        <div class="pagination">
+            Go to page...
+            {% for page in pages %}
+            <a href="/search/{{ page }}?q={{ query }}">{{ page }}</a>
+            {% endfor %}
+        </div>
 
     </div>
 </div>

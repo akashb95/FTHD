@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, redirect
 from flask_jsglue import JSGlue
 from helpers import lookup
+from pagination import Pagination
 
 # configure application
 app = Flask(__name__)
@@ -26,13 +27,19 @@ def index():
     return render_template("index.html", headlines=headlines)
 
 
-@app.route("/search", methods=['GET', 'POST'])
-def search():
+@app.route("/search/<int:page_num>", methods=['GET', 'POST'])
+def search(page_num=1):
     """Search user query."""
-    query = str(request.form['q']).strip()          # ensure query is some kind of string
-    print(query)
-    results = lookup(query=query)
-    num_results = results.pop()                     # total matches on query string
-    headlines = results                             # list of headlines
+    max_results = 100
+    offset = (page_num - 1) * max_results
+    query = str(request.args.get('q')).strip()  # ensure query is some kind of string
 
-    return render_template("search.html", query=query, headlines=headlines, num_results=num_results)
+    results = lookup(query=query, offset=offset, max_results=max_results)
+
+    num_results = results.pop()  # total matches on query string
+    headlines = results  # list of headlines
+
+    pages = Pagination(page_num, (num_results // max_results) + 1)
+
+    return render_template("search.html", query=query, headlines=headlines,
+                           num_results=num_results, pages=pages.paginate())

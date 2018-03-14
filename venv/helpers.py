@@ -57,6 +57,8 @@ def lookup(query, offset=None, max_results=None):
     parameters['queryString'] = query
     response = requests.post(endpoint, params=api, headers=headers, json=parameters).json()
 
+    print(response)
+
     # number of articles found
     index_count = response["results"][0]["indexCount"]
     try:
