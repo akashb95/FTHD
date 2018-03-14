@@ -18,13 +18,25 @@ ol li {
     position: relative;
 }
 
+div.pagination {
+    position: relative;
+}
+
+span.pagination {
+    padding-left: 1vw;
+    padding-right: 1vw;
+    background-color: #c5b4a7;
+    border: 1px solid;
+    border-radius: 6px;
+}
+
 .container {
 }
 
 .align-left {
     float: left;
     position: relative;
-    left: 2.5vw;
+    left: 1.5vw;
 }
 
 .align-right {
@@ -34,12 +46,20 @@ ol li {
 }
 
 .return {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    padding-bottom: 10px;
     position: relative;
-    left: 2.5vw;
+    left: 1.5vw;
 }
 
 .results-heading{
     clear: both;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    padding-bottom: 10px;
 }
 
 .results-title-details {
@@ -109,4 +129,16 @@ a:link {
 
 a:visited {
     color: #5c005c;
+}
+
+a.pagination:hover {
+    position: relative;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 115%;
+}
+
+label.pagination {
+    position: relative;
+    font-size: 120%;
 }

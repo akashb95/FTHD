@@ -57,12 +57,17 @@
             </main>
         </div>
 
+        {% if pages %}
         <div class="pagination">
-            Go to page...
+            <label class="pagination">Navigate to page... </label> &nbsp;
             {% for page in pages %}
-            <a href="/search/{{ page }}?q={{ query }}">{{ page }}</a>
+            <a class="pagination" href="/search/{{ page }}?q={{ query }}">
+                <span class="pagination">{{ page }}</span>
+            </a>
             {% endfor %}
         </div>
+        {% endif %}
+
 
     </div>
 </div>
