@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta content="initial-scale=1, width=device-width" name="viewport"/>
 
+    <!-- http://stewartjpark.com/Flask-JSGlue/ -->
+    {{ JSGlue.include() }}
+
     <!-- font -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
 
@@ -27,9 +30,6 @@
     <!-- React Component -->
     <script type="text/jsx" src="{{ url_for ('static', filename='headline.js') }}"></script>
 
-    <!-- http://stewartjpark.com/Flask-JSGlue/ -->
-    {{ JSGlue.include() }}
-
     <title>
         FTHD: {% block title %}{% endblock %}
     </title>
@@ -45,9 +45,8 @@
                 <div class="form-group">
                     <label class="sr-only">Search</label>
                     <input type="search" class="form-control" name="q" id="q" placeholder="Search..."
-                           aria-label="Search FT Headlines" required>
-                    <!-- Span for error checking -->
-                    <span></span>
+                           aria-label="Search FT Headlines" value="{{ query }}" required>
+
                     <input type="submit" class="btn btn-success" id="submit" value="Go"/>
                 </div>
             </form>
@@ -57,6 +56,17 @@
                 {% block main %}{% endblock %}
             </main>
         </div>
+
+        <span class="input-group-addon">Results per page: </span>
+        <label class="sr-only">>Results per page</label>
+        <select name="resultsPerPage" class="selectpicker form-control">
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="75">75</option>
+            <option value="100" selected="selected">100</option>
+        </select>
+        <input type="submit" id="submitResultsPerPage" class="btn-small btn-secondary" value="Go">
+
     </div>
 </div>
 
