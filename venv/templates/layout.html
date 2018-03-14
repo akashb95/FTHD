@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="initial-scale=1, width=device-width" name="viewport"/>
+
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+
+    <!-- Bootstrap CSS: http://getbootstrap.com/ -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- FTHD's own CSS -->
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet"/>
+
+    <!-- http://jquery.com/ -->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+    <!-- Bootstrap JS: http://getbootstrap.com/ -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- React Components' Support -->
+    <script src="https://unpkg.com/react@15.6.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.6.2/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <!-- React Component -->
+    <script type="text/jsx" src="{{ url_for ('static', filename='headline.js') }}"></script>
+
+    <!-- http://stewartjpark.com/Flask-JSGlue/ -->
+    {{ JSGlue.include() }}
+
+    <title>
+        FTHD: {% block title %}{% endblock %}
+    </title>
+
+</head>
+
+<body>
+<div class="container-fluid">
+    <div class="container">
+        <div class="info-form">
+            <form action="{{ url_for('search') }}" method="POST" class="form-inline justify-content-center"
+                  role="search">
+                <div class="form-group">
+                    <label class="sr-only">Search</label>
+                    <input type="search" class="form-control" name="q" id="q" placeholder="Search..."
+                           aria-label="Search FT Headlines" required>
+                    <!-- Span for error checking -->
+                    <span></span>
+                    <input type="submit" class="btn btn-success" id="submit" value="Go"/>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <main>
+                {% block main %}{% endblock %}
+            </main>
+        </div>
+    </div>
+</div>
+
+<!-- app's own JavaScript -->
+<script src="{{ url_for('static', filename='scripts.js') }}"></script>
+
+</body>
+</html>

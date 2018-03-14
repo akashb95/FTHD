@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block title %} &rdquo;{{ query }}&ldquo; Search Results {% endblock %}
+
+{% block main %}
+<div class="results-heading row">
+    <h2 class="align-left">Showing search results for &rdquo;{{ query }}&ldquo;</h2>
+    <span class="align-right">Total: {{ num_results }}</span>
+</div>
+<div class="return row">
+    <h5><a href="{{ url_for('index') }}">Go back to Latest Headlines</a></h5>
+</div>
+
+
+<div class="col-md-12" id="headlines">
+    {% if headlines %}
+    {% for headline in headlines %}
+    <div class="headline">
+        <h4><a href={{headline.link}} target="_blank"> {{ headline.title }} </a></h4>
+        <span> {{ headline.summary.excerpt }}... </span> <br>
+        <small>{{ headline.timestamp }}</small>
+    </div>
+    {% endfor %}
+
+    {% else %}
+    <div class="headline">
+        <h4>No results found.</h4>
+        <a href="{{ url_for('index') }}">Show Latest Headlines</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
