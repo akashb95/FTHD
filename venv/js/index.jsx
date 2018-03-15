@@ -1,4 +1,4 @@
-// index.jsx
+// import statements
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
