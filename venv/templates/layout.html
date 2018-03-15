@@ -7,23 +7,8 @@
     <!-- http://stewartjpark.com/Flask-JSGlue/ -->
     {{ JSGlue.include() }}
 
-    <!--&lt;!&ndash; font &ndash;&gt;-->
-    <!--<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">-->
-
-    <!--&lt;!&ndash; Bootstrap CSS: http://getbootstrap.com/ &ndash;&gt;-->
-    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>-->
-
-    <!--&lt;!&ndash; Bootstrap JS: http://getbootstrap.com/ &ndash;&gt;-->
-    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
-
-    <!--&lt;!&ndash; http://jquery.com/ &ndash;&gt;-->
-    <!--<script src="https://code.jquery.com/jquery-latest.min.js"></script>-->
-
     <!-- Bundled CSS and JS - Bootstrap, jQuery, FTHD's native JS and CSS -->
     <script src="{{ url_for('static', filename='bundle.js') }}"></script>
-
-    <!--&lt;!&ndash; FTHD's own CSS &ndash;&gt;-->
-    <!--<link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet"/>-->
 
     <title>
         FTHD: {% block title %}{% endblock %}
@@ -34,6 +19,9 @@
 <body>
 <div class="container-fluid">
     <div class="container">
+        <div class="header">
+
+        </div>
         <div class="info-form">
             <form action="{{ url_for('search', page_num=1) }}" method="GET" class="form-inline justify-content-center"
                   role="search">
@@ -46,11 +34,10 @@
                 </div>
             </form>
         </div>
-        <div class="row">
-            <main>
-                {% block main %}{% endblock %}
-            </main>
-        </div>
+
+        <main>
+            {% block main %}{% endblock %}
+        </main>
 
         {% if pages %}
         <div class="pagination">
@@ -63,12 +50,12 @@
         </div>
         {% endif %}
 
+        <div class="footer">
+
+        </div>
 
     </div>
 </div>
-
-<!-- app's own JavaScript -->
-
 
 </body>
 </html>

@@ -2,30 +2,40 @@
 {% block title %} &rdquo;{{ query }}&ldquo; Search Results {% endblock %}
 
 {% block main %}
-<div class="results-heading row">
-    <h2 class="align-left">Showing search results for &rdquo;{{ query }}&ldquo;</h2>
-    <span class="align-right">Total: {{ num_results }}</span>
-</div>
-<div class="return row">
-    <h5><a href="{{ url_for('index') }}">Go back to Latest Headlines</a></h5>
-</div>
 
-
-<div class="col-md-12" id="headlines">
-    {% if headlines %}
-    {% for headline in headlines %}
-    <div class="headline">
-        <h4><a href={{headline.link}} target="_blank"> {{ headline.title }} </a></h4>
-        <span> {{ headline.summary.excerpt }}... </span> <br>
-        <small>{{ headline.timestamp }}</small>
+<span class="align-right"></span>
+<div class="row">
+    <div class="col-sm-8">
+        <h2>Showing search results for &rdquo;{{ query }}&ldquo;</h2>
+        <h5><a href="{{ url_for('index') }}">Go back to Latest Headlines</a></h5>
     </div>
-    {% endfor %}
+
+    <div class="col-sm-4" style="text-align: right;">
+        <small>Total results: {{ num_results }}</small>
+    </div>
+</div>
+
+<div class="col-sm-12" id="headlines">
+    {% if headlines %}
+    <ol>
+        {% for headline in headlines %}
+        <li>
+            <div class="headline">
+                <h4><a href={{headline.link}} target="_blank"> {{ headline.title }} </a></h4>
+                <span> {{ headline.summary.excerpt }}... </span> <br>
+                <small>{{ headline.timestamp }}</small>
+            </div>
+        </li>
+        {% endfor %}
+    </ol>
+
 
     {% else %}
-    <div class="headline">
+    <div class="col-sm-12">
         <h4>No results found.</h4>
         <a href="{{ url_for('index') }}">Show Latest Headlines</a>
     </div>
     {% endif %}
 </div>
+
 {% endblock %}
