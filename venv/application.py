@@ -31,14 +31,25 @@ def index():
 def search(page_num=1):
     """Search user query."""
     offset = (page_num - 1) * MAX_RESULTS
+    with open('log.txt', 'a') as f:
+        f.write('got query \n')
     query = str(request.args.get('q')).strip()  # ensure query is some kind of string
-
+    with open('log.txt', 'a') as f:
+        f.write(query)
+        f.write('\n')
     results = lookup(query=query, offset=offset, max_results=MAX_RESULTS)
 
     num_results = results.pop()  # total matches on query string
     headlines = results  # list of headlines
 
+    if not headlines[0]:
+        headlines = None
+
     pages = Pagination(page_num, (num_results // MAX_RESULTS) + 1, 4, 4)
 
     return render_template("search.html", query=query, headlines=headlines,
                            num_results=num_results, pages=pages.paginate())
+
+
+if __name__ == '__main__':
+    app.run()

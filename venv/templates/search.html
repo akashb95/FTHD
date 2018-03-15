@@ -6,7 +6,7 @@
 <span class="align-right"></span>
 <div class="row">
     <div class="col-sm-8">
-        <h2>Showing search results for &rdquo;{{ query }}&ldquo;</h2>
+        <h2>Showing search results for &ldquo;{{ query }}&rdquo;</h2>
         <h5><a href="{{ url_for('index') }}">Go back to Latest Headlines</a></h5>
     </div>
 
@@ -15,7 +15,7 @@
     </div>
 </div>
 
-<div class="col-sm-12" id="headlines">
+<div class="col-sm-12 headlines">
     {% if headlines %}
     <ol>
         {% for headline in headlines %}
@@ -29,13 +29,17 @@
         {% endfor %}
     </ol>
 
-
     {% else %}
-    <div class="col-sm-12">
-        <h4>No results found.</h4>
-        <a href="{{ url_for('index') }}">Show Latest Headlines</a>
-    </div>
-    {% endif %}
+    <ol>
+        <li>
+            <div class="headline">
+                <h4>No results found.</h4>
+                <span>Whoops! Your search yielded no results.</span> <br>
+                <a href="{{ url_for('index') }}">Show Latest Headlines</a>
+            </div>
+        </li>
+    </ol>
+{% endif %}
 </div>
 
 {% endblock %}
