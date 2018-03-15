@@ -7,15 +7,6 @@ from pagination import Pagination
 app = Flask(__name__)
 JSGlue(app)
 
-# ensure responses aren't cached
-if app.config["DEBUG"]:
-    @app.after_request
-    def after_request(response):
-        response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
-        response.headers["Expires"] = 0
-        response.headers["Pragma"] = "no-cache"
-        return response
-
 
 @app.route("/", methods=['GET'])
 def index():
@@ -31,12 +22,9 @@ def index():
 def search(page_num=1):
     """Search user query."""
     offset = (page_num - 1) * MAX_RESULTS
-    with open('log.txt', 'a') as f:
-        f.write('got query \n')
+
     query = str(request.args.get('q')).strip()  # ensure query is some kind of string
-    with open('log.txt', 'a') as f:
-        f.write(query)
-        f.write('\n')
+
     results = lookup(query=query, offset=offset, max_results=MAX_RESULTS)
 
     num_results = results.pop()  # total matches on query string

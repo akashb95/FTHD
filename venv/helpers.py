@@ -75,9 +75,6 @@ def lookup(query, offset=None, max_results=None):
     lookup.cache[query].append(index_count)
     lookup.cache[query].append({'maxResults': max_results, 'offset': offset})
 
-    with open('log.txt', 'a') as f:
-        f.write(str(lookup.cache[query]))
-
     # send everything but the result details
     return lookup.cache[query][:-1]
 
