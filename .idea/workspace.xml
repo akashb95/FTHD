@@ -51,8 +51,8 @@
       <file leaf-file-name="search.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/venv/templates/search.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="27" column="13" lean-forward="true" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+            <state relative-caret-position="684">
+              <caret line="38" column="6" lean-forward="true" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
               <folding>
                 <element signature="e#239#246#0" expanded="true" />
                 <element signature="e#257#264#0" expanded="true" />
@@ -274,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1521113748265</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Updated comments">
+      <created>1521113778941</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1521113778941</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -319,7 +326,8 @@
     <MESSAGE value="Configured webpack to minify all used JS libraries and CSS to a bundle.js file" />
     <MESSAGE value="Minified JS and CSS used in this project" />
     <MESSAGE value="- Improved accessibility by adding headlines as an ordered list (visible only if CSS has not loaded).&#10;- Minor CSS bugs squashed" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Improved accessibility by adding headlines as an ordered list (visible only if CSS has not loaded).&#10;- Minor CSS bugs squashed" />
+    <MESSAGE value="Updated comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated comments" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -633,8 +641,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/templates/search.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="27" column="13" lean-forward="true" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        <state relative-caret-position="684">
+          <caret line="38" column="6" lean-forward="true" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
           <folding>
             <element signature="e#239#246#0" expanded="true" />
             <element signature="e#257#264#0" expanded="true" />
