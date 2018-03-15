@@ -7,28 +7,23 @@
     <!-- http://stewartjpark.com/Flask-JSGlue/ -->
     {{ JSGlue.include() }}
 
-    <!-- font -->
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    <!--&lt;!&ndash; font &ndash;&gt;-->
+    <!--<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">-->
 
-    <!-- Bootstrap CSS: http://getbootstrap.com/ -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <!--&lt;!&ndash; Bootstrap CSS: http://getbootstrap.com/ &ndash;&gt;-->
+    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>-->
 
-    <!-- FTHD's own CSS -->
-    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet"/>
+    <!--&lt;!&ndash; Bootstrap JS: http://getbootstrap.com/ &ndash;&gt;-->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 
-    <!-- http://jquery.com/ -->
-    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <!--&lt;!&ndash; http://jquery.com/ &ndash;&gt;-->
+    <!--<script src="https://code.jquery.com/jquery-latest.min.js"></script>-->
 
-    <!-- Bootstrap JS: http://getbootstrap.com/ -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Bundled CSS and JS - Bootstrap, jQuery, FTHD's native JS and CSS -->
+    <script src="{{ url_for('static', filename='bundle.js') }}"></script>
 
-    <!-- React Components' Support -->
-    <script src="https://unpkg.com/react@15.6.2/dist/react.js"></script>
-    <script src="https://unpkg.com/react-dom@15.6.2/dist/react-dom.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
-
-    <!-- React Component -->
-    <script type="text/jsx" src="{{ url_for ('static', filename='headline.js') }}"></script>
+    <!--&lt;!&ndash; FTHD's own CSS &ndash;&gt;-->
+    <!--<link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet"/>-->
 
     <title>
         FTHD: {% block title %}{% endblock %}
@@ -73,7 +68,7 @@
 </div>
 
 <!-- app's own JavaScript -->
-<script src="{{ url_for('dist', filename='bundle.js') }}"></script>
+
 
 </body>
 </html>
