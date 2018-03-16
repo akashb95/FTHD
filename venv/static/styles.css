@@ -113,7 +113,8 @@ span.pagination {
     text-align: center;
     padding-left: 1vw;
     padding-right: 1vw;
-    margin-left: 1vw;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
     background-color: #c5b4a7;
     border: 1px solid;
     border-radius: 6px;
