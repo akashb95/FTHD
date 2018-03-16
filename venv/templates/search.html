@@ -22,7 +22,7 @@
         <li>
             <div class="headline">
                 <h4><a href={{headline.link}} target="_blank"> {{ headline.title }} </a></h4>
-                <span> {{ headline.summary.excerpt }}... </span> <br>
+                <span> {{ headline.summary.excerpt|safe }} </span> <br>
                 <small>{{ headline.timestamp }}</small>
             </div>
         </li>

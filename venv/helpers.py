@@ -22,8 +22,8 @@ parameters = {"queryString": "",
                   "aspects": ["title", "lifecycle", "location", "summary", "editorial"],
                   "maxResults": MAX_RESULTS,
                   "offset": 0,
-                  "contextual": False,
-                  "highlight": False,
+                  "contextual": True,
+                  "highlight": True,
                   "suppressDefaultSort": False
               }}
 
@@ -65,8 +65,10 @@ def lookup(query, offset=None, max_results=None):
         # cache results
         lookup.cache[query] = [
             {"link": item["location"]["uri"], "title": item["title"]["title"], "summary": item["summary"],
-             "timestamp": item["lifecycle"]["lastPublishDateTime"]}
+             "timestamp": parse_datetime(item["lifecycle"]["lastPublishDateTime"])}
             for item in articles]
+
+        print(lookup.cache[query])
 
     # if no results found
     except KeyError:
@@ -81,3 +83,16 @@ def lookup(query, offset=None, max_results=None):
 
 # initialize cache
 lookup.cache = {}
+
+
+def parse_datetime(dt):
+    year = dt[:4]
+    month = dt[5:7]
+    day = dt[8:10]
+
+    hour = dt[11:13]
+    mins = dt[14:16]
+
+    parsed = "{day}/{month}/{year} at {hour}:{mins}".format(day=day, month=month, year=year, hour=hour, mins=mins)
+
+    return parsed
