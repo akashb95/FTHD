@@ -8,6 +8,11 @@ app = Flask(__name__)
 JSGlue(app)
 
 
+@app.route("/articles", methods=['POST'])
+def articles():
+    MAX_RESULTS = request.form.get("articles-per-page")
+
+
 @app.route("/", methods=['GET'])
 def index():
     """Render home-page."""
@@ -18,7 +23,7 @@ def index():
     return render_template("index.html", headlines=headlines)
 
 
-@app.route("/search/<int:page_num>", methods=['GET'])
+@app.route("/search/<int:page_num>", methods=['GET', 'POST'])
 def search(page_num=1):
     """Search user query."""
     offset = (page_num - 1) * MAX_RESULTS

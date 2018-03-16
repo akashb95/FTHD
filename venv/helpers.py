@@ -1,7 +1,7 @@
 import requests
 from key import api_key
 
-MAX_RESULTS = 25                       # default number of results on page
+MAX_RESULTS = 50                       # default number of results on page
 
 api = {"apiKey": api_key}
 
