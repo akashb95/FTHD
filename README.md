@@ -2,8 +2,9 @@
 # Author - Akash B (March 2018).
 
 App to search headlines using the FT Headlines API.
-Project uses:
-- Bootstrap for design and layout.
+
+Project features:
+- Bootstrap for responsive design and layout.
 - Flask for server-side rendering and routing.
 - Jinja2 for templating.
 
