@@ -20,7 +20,7 @@
 <div class="container-fluid">
     <div class="container">
         <div class="header">
-
+            <h1><strong>FT</strong> Headlines Dredger</h1>
         </div>
         <div class="info-form">
             <form action="{{ url_for('search', page_num=1) }}" method="GET" class="form-inline justify-content-center"
@@ -44,6 +44,7 @@
             <label class="pagination">Navigate to page... </label> &nbsp;
             {% for page in pages %}
             <a class="pagination" href="/search/{{ page }}?q={{ query }}">
+                <label class="sr-only">Go to page {{ page }}</label>
                 <span class="pagination">{{ page }}</span>
             </a>
             {% endfor %}

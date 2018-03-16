@@ -7,8 +7,15 @@
     margin: 0;
 }
 
+.container {
+    background-color: #d4c3b6;
+    border-style: outset;
+    border-color: #b8a79c;
+}
+
 div.header {
-    min-height: 2vh;
+    text-align: center;
+    padding-top: 2vh;
 }
 
 div.info-form {
