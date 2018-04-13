@@ -93,6 +93,23 @@ a:visited {
     color: #5c005c;
 }
 
+div#extend-button-div {
+    text-align: center;
+    padding-bottom: 5vh;
+}
+
+button#extend-button {
+    background-color: #c5b4a7;
+    border: 1px solid;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 115%
+}
+
+button#extend-button:hover {
+    font-weight: bold;
+}
+
 div.pagination {
     position: relative;
 }

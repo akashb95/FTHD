@@ -1,28 +1,28 @@
 {% extends "layout.html" %}
 
 {% block title %}
-Home
+    Home
 {% endblock %}
 
 {% block main %}
-<div class="row">
-    <div class="col-sm-8">
-        <h2 class="align-left">Showing Latest Headlines</h2>
+    <div class="row">
+        <div class="col-sm-8">
+            <h2 class="align-left">Showing Latest Headlines</h2>
+        </div>
     </div>
-</div>
 
-<div class="col-sm-12 headlines">
-    <ol>
-        {% for headline in headlines %}
-        <li>
-            <div class="headline">
-                <h4><a href={{headline.link}} target="_blank"> {{ headline.title }} </a></h4>
-                <span> {{ headline.summary.excerpt }}... </span> <br>
-                <small>{{ headline.timestamp }}</small>
-            </div>
-        </li>
-        {% endfor %}
-    </ol>
-</div>
+    <div id="headlines" class="col-sm-12 headlines">
+        <ol>
+            {% for headline in headlines %}
+                <li>
+                    <div class="headline">
+                        <h4><a href={{ headline.link }} target="_blank"> {{ headline.title }} </a></h4>
+                        <span> {{ headline.summary.excerpt | safe}}... </span> <br>
+                        <small>{{ headline.timestamp }}</small>
+                    </div>
+                </li>
+            {% endfor %}
+        </ol>
+    </div>
 
 {% endblock %}

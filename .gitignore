@@ -1,5 +1,8 @@
 venv/node_modules
 venv/Lib
 venv/Scripts
+venv/key.py
 FTHD-key.pem
 venv/__pycache_
+.idea
+

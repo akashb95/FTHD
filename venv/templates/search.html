@@ -11,11 +11,12 @@
     </div>
 
     <div class="col-sm-4" style="text-align: right;">
-        <small>Total articles: {{ num_results }}</small>
+        <small><span id="total-articles">Total articles: {{ num_results }}</span></small> &nbsp;
+        <small>Page: <span id="page-number">{{ current_page }}</span></small>
     </div>
 </div>
 
-<div class="col-sm-12 headlines">
+<div id="headlines" class="col-sm-12 headlines">
     {% if headlines %}
     <ol>
         {% for headline in headlines %}

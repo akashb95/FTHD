@@ -68,8 +68,6 @@ def lookup(query, offset=None, max_results=None):
              "timestamp": parse_datetime(item["lifecycle"]["lastPublishDateTime"])}
             for item in articles]
 
-        print(lookup.cache[query])
-
     # if no results found
     except KeyError:
         lookup.cache[query] = [None]

@@ -39,16 +39,22 @@
             {% block main %}{% endblock %}
         </main>
 
-        {% if pages %}
-        <div class="pagination">
-            <label class="pagination">Navigate to page... </label> &nbsp;
-            {% for page in pages %}
-            <a class="pagination" href="/search/{{ page }}?q={{ query }}">
-                <label class="sr-only">Go to page {{ page }}</label>
-                <span class="pagination">{{ page }}</span>
-            </a>
-            {% endfor %}
+        <div id="extend-button-div">
+            <button id="extend-button">
+                <large>Show More...</large>
+            </button>
         </div>
+
+        {% if pages %}
+            <div class="pagination">
+                <label class="pagination">Navigate to page... </label> &nbsp;
+                {% for page in pages %}
+                    <a class="pagination" href="/search/{{ page }}?q={{ query }}">
+                        <label class="sr-only">Go to page {{ page }}</label>
+                        <span id={{ page }} class="pagination">{{ page }}</span>
+                    </a>
+                {% endfor %}
+            </div>
         {% endif %}
 
         <div class="footer">
@@ -57,6 +63,5 @@
 
     </div>
 </div>
-
 </body>
 </html>
