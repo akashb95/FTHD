@@ -3,6 +3,7 @@ venv/Lib
 venv/Scripts
 venv/key.py
 FTHD-key.pem
+FTHD-key.ppk
 venv/__pycache_
 .idea
 
