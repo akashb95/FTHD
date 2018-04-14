@@ -33,10 +33,10 @@ endpoint = "http://api.ft.com/content/search/v1?apiKey={}".format(api_key)
 def lookup(query, offset=None, max_results=None):
     """
     Looks up query articles from FT using FT Headlines API.
-    :param query: query string
-    :param offset: (pageNumber - 1) * max_results
-    :param max_results: number of results on page
-    :return: list of articles with headlines, link to article, timestamp and a summary.
+    :param query: [str] query string
+    :param offset: [int] (pageNumber - 1) * max_results
+    :param max_results: [int] number of results on page
+    :return: [List] list of articles with headlines, link to article, timestamp and a summary.
     """
 
     # check cache for articles
@@ -84,6 +84,11 @@ lookup.cache = {}
 
 
 def parse_datetime(dt):
+    """
+    Parses timestamp string received from API and makes it more readable.
+    :param [str] dt: timestamp
+    :return: [str] parsed timestamp
+    """
     year = dt[:4]
     month = dt[5:7]
     day = dt[8:10]

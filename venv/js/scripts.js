@@ -16,8 +16,12 @@ $(document).ready(function () {
             type: "POST",
             data: $('#q').serialize(),
             success: function (response) {
+                // If no more headlines on topic, disable button and hide it.
+                if (!response.extend) {
+                    $('#extend-button').prop('disabled', 'true');
+                    $('#extend-button-div').fadeOut(500);
+                }
                 $("#headlines").append(response.data);
-                if (!response.extend) $('#extend-button-div').hide();
             }
         });
     });
