@@ -1,9 +1,17 @@
 $(document).ready(function () {
     let numberExtended = 0;     // Number of times headlines updated via AJAX.
     let currentPage = parseInt($('#page-number').text());
+    let resultsPerPage = parseInt($('#results-per-page').text());
+    let totalArticles = parseInt($('#total-articles').text());
 
     // In the pagination section, indicate to user current page number.
     $('#' + currentPage).css({'text-color': 'black', 'font-weight': 'bold', 'font-size': '105%'});
+
+    // Hide extend button if no more articles found.
+    if (currentPage * resultsPerPage > totalArticles) {
+        $('#extend-button').prop('disabled', 'true');
+        $('#extend-button-div').hide();
+    }
 
     /*
     Posts query via AJAX and extends the headlines div to show more results on the same page.

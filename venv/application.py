@@ -36,7 +36,8 @@ def search(page_num=1):
     pages = Pagination(page_num, (num_results // MAX_RESULTS) + 1, 4, 4)
 
     return render_template("search.html", query=query, headlines=headlines,
-                           num_results=num_results, pages=pages.paginate(), current_page=page_num)
+                           num_results=num_results, pages=pages.paginate(), current_page=page_num,
+                           results_per_page=MAX_RESULTS)
 
 
 @app.route("/extend/<int:page_num>", methods=["POST"])
