@@ -29,7 +29,7 @@ $(document).ready(function () {
                     $('#extend-button').prop('disabled', 'true');
                     $('#extend-button-div').fadeOut(500);
                 }
-                $("#headlines").append(response.data);
+                $("#headlines-list").append(response.data);
             }
         });
     });

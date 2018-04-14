@@ -12,10 +12,11 @@ JSGlue(app)
 def index():
     """Render home-page."""
     results = lookup(query="")
-    results.pop()  # number of results - not important
+    num_results = results.pop()  # number of results - not important
     headlines = results  # list of headlines
 
-    return render_template("index.html", headlines=headlines)
+    return render_template("index.html", headlines=headlines, num_results=num_results,
+                           results_per_page=MAX_RESULTS, current_page=1)
 
 
 @app.route("/search/<int:page_num>", methods=['GET', 'POST'])

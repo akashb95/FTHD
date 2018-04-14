@@ -9,15 +9,21 @@
         <div class="col-sm-8">
             <h2 class="align-left">Showing Latest Headlines</h2>
         </div>
+
+        <div id="results-info" class="col-sm-4" style="text-align: right; visibility: hidden">
+            <small>Total articles: <span id="total-articles">{{ num_results }}</span></small>
+            <small>Page: <span id="page-number">{{ current_page }}</span></small>
+            <small>Results Per Page: <span id="results-per-page">{{ results_per_page }}</span></small>
+        </div>
     </div>
 
     <div id="headlines" class="col-sm-12 headlines">
-        <ol>
+        <ol id="headlines-list">
             {% for headline in headlines %}
                 <li>
                     <div class="headline">
                         <h4><a href={{ headline.link }} target="_blank"> {{ headline.title }} </a></h4>
-                        <span> {{ headline.summary.excerpt | safe}}... </span> <br>
+                        <span> {{ headline.summary.excerpt | safe }}... </span> <br>
                         <small>{{ headline.timestamp }}</small>
                     </div>
                 </li>
