@@ -3,44 +3,47 @@
 
 {% block main %}
 
-<span class="align-right"></span>
-<div class="row">
-    <div class="col-sm-8">
-        <h2>Showing search results for &ldquo;{{ query }}&rdquo;</h2>
-        <h5><a href="{{ url_for('index') }}">Go back to Latest Headlines</a></h5>
+    <span class="align-right"></span>
+    <div class="row">
+        <div class="col-sm-8">
+            <h2>Showing search results for &ldquo;{{ query }}&rdquo;</h2>
+            <h5><a href="{{ url_for('index') }}">Go back to Latest Headlines</a></h5>
+        </div>
+
+        <div id="results-info" class="col-sm-4" style="text-align: right;">
+            <small>Total articles: <span id="total-articles">{{ num_results }}</span></small>
+            <br>
+            <small>Page: <span id="page-number">{{ current_page }}</span></small>
+            <br>
+        </div>
     </div>
 
-    <div id="results-info" class="col-sm-4" style="text-align: right;">
-        <small>Total articles: <span id="total-articles">{{ num_results }}</span></small> <br>
-        <small>Page: <span id="page-number">{{ current_page }}</span></small> <br>
+    <div id="headlines" class="col-sm-12 headlines">
+        {% if headlines %}
+            <ol id="headlines-list">
+                {% for headline in headlines %}
+                    <li>
+                        <div class="headline">
+                            <h4><a href={{ headline.link }} target="_blank"> {{ headline.title }} </a></h4>
+                            <span> {{ headline.summary.excerpt|safe }} </span> <br>
+                            <small>{{ headline.timestamp }}</small>
+                        </div>
+                    </li>
+                {% endfor %}
+                <div class="o-loading o-loading--light o-loading--small"></div>
+            </ol>
+
+        {% else %}
+            <ol>
+                <li>
+                    <div class="headline">
+                        <h4>No results found.</h4>
+                        <span>Whoops! Your search yielded no results.</span> <br>
+                        <a href="{{ url_for('index') }}">Show Latest Headlines</a>
+                    </div>
+                </li>
+            </ol>
+        {% endif %}
     </div>
-</div>
-
-<div id="headlines" class="col-sm-12 headlines">
-    {% if headlines %}
-    <ol id="headlines-list">
-        {% for headline in headlines %}
-        <li>
-            <div class="headline">
-                <h4><a href={{headline.link}} target="_blank"> {{ headline.title }} </a></h4>
-                <span> {{ headline.summary.excerpt|safe }} </span> <br>
-                <small>{{ headline.timestamp }}</small>
-            </div>
-        </li>
-        {% endfor %}
-    </ol>
-
-    {% else %}
-    <ol>
-        <li>
-            <div class="headline">
-                <h4>No results found.</h4>
-                <span>Whoops! Your search yielded no results.</span> <br>
-                <a href="{{ url_for('index') }}">Show Latest Headlines</a>
-            </div>
-        </li>
-    </ol>
-    {% endif %}
-</div>
 
 {% endblock %}
