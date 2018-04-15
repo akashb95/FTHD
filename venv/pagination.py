@@ -2,10 +2,10 @@ class Pagination:
     def __init__(self, curr_page, max_page, left=2, right=2):
         """
         Initialise pagination
-        :param curr_page: current page number
-        :param max_page: maximum number of pages needed for results
-        :param left: number of previous search pages whose links are to be displayed
-        :param right: number of following search pages whose links are to be displayed
+        :param curr_page: [int] current page number
+        :param max_page: [int] maximum number of pages needed for results
+        :param left: [int] number of previous search pages whose links are to be displayed
+        :param right: [int] number of following search pages whose links are to be displayed
         """
         self.current_page = int(curr_page)
         self.max_page = int(max_page)
@@ -22,11 +22,10 @@ class Pagination:
 
     def paginate(self):
         """
-        :return: An array of page numbers to be shown.
+        :return: [List] An array of page numbers to be shown.
         """
         if self.has_previous():
-            self.pages.extend(list(range(max(self.current_page - self.num_previous_pages, 1),
-                                         self.current_page)))
+            self.pages.extend(list(range(max(self.current_page - self.num_previous_pages, 1), self.current_page)))
 
         self.pages.append(self.current_page)
 
