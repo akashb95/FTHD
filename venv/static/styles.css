@@ -36,6 +36,7 @@ input#q {
 input#submit {
     margin-top: 2vh;
     margin-bottom: 2vh;
+    margin-right: 2vw;
     min-width: 7vw;
     max-width: 15vw;
     background-color: #6e615a;
@@ -51,6 +52,10 @@ input#submit {
 
 input#q:invalid {
     border-color: #8f1b1d;
+}
+
+select#select-results-per-page {
+    background-color: rgb(243, 225, 211);
 }
 
 ol {
