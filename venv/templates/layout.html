@@ -7,6 +7,9 @@
     <!-- http://stewartjpark.com/Flask-JSGlue/ -->
     {{ JSGlue.include() }}
 
+    <link rel="stylesheet" href="https://build.origami.ft.com/v2/bundles/css?modules=o-fonts@^3.0.4,o-loading@^2.2.0"/>
+    <script src="https://build.origami.ft.com/v2/bundles/js?modules=o-fonts@^3.0.4,o-loading@^2.2.0"></script>
+
     <!-- Bundled CSS and JS - Bootstrap, jQuery, FTHD's native JS and CSS -->
     <script src="{{ url_for('static', filename='bundle.js') }}"></script>
 
@@ -35,7 +38,8 @@
                     <input type="submit" class="btn btn-success" id="submit" value="Go"/>
 
                     <label>Results per page:&nbsp;</label>
-                    <select class="selectpicker form-control" id="select-results-per-page" name="select-results-per-page">
+                    <select class="selectpicker form-control" id="select-results-per-page"
+                            name="select-results-per-page">
                         <option value="25">25</option>
                         <option value="50" selected>50</option>
                         <option value="75">75</option>
@@ -59,7 +63,8 @@
             <div class="pagination">
                 <label class="pagination">Navigate to page... </label> &nbsp;
                 {% for page in pages %}
-                    <a class="pagination" id={{ page }} href="/search/{{ page }}?q={{ query }}&select-results-per-page={{ results_per_page }}">
+                    <a class="pagination"
+                       id={{ page }} href="/search/{{ page }}?q={{ query }}&select-results-per-page={{ results_per_page }}">
                         <label class="sr-only">Go to page {{ page }}</label>
                         <span class="pagination">{{ page }}</span>
                     </a>
