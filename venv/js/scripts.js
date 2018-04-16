@@ -14,6 +14,14 @@ $(document).ready(function () {
     let totalArticles = parseInt($('#total-articles').text());
     let extendButton = $('#extend-button');
     let canExtend = true;
+    let autoload = false;
+
+    // Enable/disable autoload functionality
+    $('#autoload').click(function() {
+        $('#autoload').toggle(this.checked);
+        autoload = !autoload;
+    });
+
 
     // In the pagination section, indicate to user current page number.
     $('#' + currentPage).css({'text-color': 'black', 'font-weight': 'bold', 'font-size': '105%'});
@@ -76,8 +84,9 @@ $(document).ready(function () {
 
     // If nearing bottom of page, extend button clicked and new results loaded preemptively.
     $(window).scroll(function() {
-        if ($(window).scrollTop() > $(document).height() - 2 * $(window).height()) {
-            if (canExtend) extendButton.click();
+        if (autoload && canExtend){
+            if ($(window).scrollTop() > $(document).height() - 2 * $(window).height()) extendButton.click();
         }
+
     })
 });

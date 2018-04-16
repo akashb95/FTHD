@@ -64,6 +64,7 @@ input#q:invalid {
 
 select#select-results-per-page {
     background-color: rgb(243, 225, 211);
+    margin-right: 2vw;
 }
 
 ol {
