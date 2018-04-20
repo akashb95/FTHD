@@ -7,3 +7,7 @@ FTHD-key.ppk
 venv/__pycache_
 .idea
 
+
+*.pem
+
+venv/__pycache__/
